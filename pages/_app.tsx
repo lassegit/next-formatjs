@@ -9,12 +9,11 @@ import da from '../locales/da.json';
 const messages: Record<string, {}> = { en, de, da };
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const router = useRouter();
-  const locale = router.query.locale?.toString() || 'en';
+  const { locale = 'en', defaultLocale, locales } = useRouter();
 
   return (
-    <IntlProvider locale={locale} defaultLocale="en" messages={messages[locale]}>
-      <Component {...pageProps} />
+    <IntlProvider locale={locale} defaultLocale={defaultLocale} messages={messages[locale]}>
+      <Component {...pageProps} locales={locales} />
     </IntlProvider>
   );
 }

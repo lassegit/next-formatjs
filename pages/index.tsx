@@ -5,9 +5,11 @@ import Link from 'next/link';
 import { useIntl } from 'react-intl';
 import styles from '../styles/Home.module.css';
 
-const locales = ['en', 'de', 'da'];
+type Props = {
+  locales: string[];
+};
 
-const Home: NextPage = () => {
+const Home: NextPage<Props> = ({ locales }) => {
   const { formatMessage } = useIntl();
 
   return (
@@ -21,7 +23,9 @@ const Home: NextPage = () => {
       <ul>
         {locales.map((locale) => (
           <li key={locale}>
-            <Link href={`/?locale=${locale}`}>{locale}</Link>
+            <Link href="/" locale={locale}>
+              {locale}
+            </Link>
           </li>
         ))}
       </ul>
