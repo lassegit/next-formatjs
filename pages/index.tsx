@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useIntl } from 'react-intl';
 import styles from '../styles/Home.module.css';
 
-const locales = ['en', 'de'];
+const locales = ['en', 'de', 'da'];
 
 const Home: NextPage = () => {
   const { formatMessage } = useIntl();
